@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "../../utils";
-import { MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
+import { MapPin, Phone, Mail, Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -28,6 +28,7 @@ export default function Footer() {
               {[
                 { name: "Home", page: "Home" },
                 { name: "About Us", page: "About" },
+                { name: "Services", page: "Services" },
                 { name: "Portfolio", page: "Portfolio" },
                 { name: "Contact", page: "Contact" },
                 { name: "Warranty", page: "Warranty" },
@@ -65,8 +66,19 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-[#c9a84c] flex-shrink-0" />
                 <span className="text-white/40 text-sm">
-                  info@binkshomes.com
+                  admin@binkshomes.org
                 </span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Instagram className="w-4 h-4 text-[#c9a84c] flex-shrink-0" />
+                <a 
+                  href="https://www.instagram.com/binkshomes" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white/40 text-sm hover:text-[#c9a84c] transition-colors"
+                >
+                  @binkshomes
+                </a>
               </li>
             </ul>
           </div>
