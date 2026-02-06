@@ -173,12 +173,7 @@ export default function About() {
                 alt="Building process"
                 className="w-full aspect-[4/5] object-cover"
               />
-              <div className="absolute -bottom-6 -left-6 bg-[#c9a84c] p-6 md:p-8">
-                <p className="text-3xl md:text-4xl font-light text-[#1a1a2e]">18+</p>
-                <p className="text-[#1a1a2e]/70 text-sm uppercase tracking-wider">
-                  Years of Excellence
-                </p>
-              </div>
+
             </motion.div>
           </div>
         </div>
