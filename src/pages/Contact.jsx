@@ -31,7 +31,7 @@ export default function Contact() {
 
     // Send email notification
     await base44.integrations.Core.SendEmail({
-      to: "info@binkshomes.com",
+      to: "admin@binkshomes.org",
       subject: `New Contact: ${form.subject || "General Inquiry"} — from ${form.full_name}`,
       body: `
         <h2>New Contact Form Submission</h2>

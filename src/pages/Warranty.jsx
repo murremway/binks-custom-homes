@@ -114,7 +114,7 @@ export default function Warranty() {
 
     // Send email notification
     await base44.integrations.Core.SendEmail({
-      to: "info@binkshomes.com",
+      to: "admin@binkshomes.org",
       subject: `Warranty Claim: ${form.claim_category} — ${form.owner_name}`,
       body: `
         <h2>New Warranty Claim Submitted</h2>
