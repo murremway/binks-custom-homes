@@ -45,7 +45,7 @@ export default function Navbar() {
                 scrolled || !isHome ? "text-[#1a1a2e]" : "text-white"
               }`}
             >
-              APEX
+              BINKS
               <span className="text-[#c9a84c] font-semibold">HOMES</span>
             </span>
           </Link>

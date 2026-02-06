@@ -31,7 +31,7 @@ export default function Contact() {
 
     // Send email notification
     await base44.integrations.Core.SendEmail({
-      to: "info@apexhomes.com",
+      to: "info@binkshomes.com",
       subject: `New Contact: ${form.subject || "General Inquiry"} — from ${form.full_name}`,
       body: `
         <h2>New Contact Form Submission</h2>
@@ -101,17 +101,17 @@ export default function Contact() {
                     {
                       icon: MapPin,
                       title: "Visit Us",
-                      lines: ["1234 Builder's Lane", "Scottsdale, AZ 85251"],
+                      lines: ["1234 Builder's Lane", "Harrisburg, PA 17101"],
                     },
                     {
                       icon: Phone,
                       title: "Call Us",
-                      lines: ["(480) 555-0190", "(480) 555-0191"],
+                      lines: ["(717) 555-0190", "(717) 555-0191"],
                     },
                     {
                       icon: Mail,
                       title: "Email Us",
-                      lines: ["info@apexhomes.com", "sales@apexhomes.com"],
+                      lines: ["info@binkshomes.com", "sales@binkshomes.com"],
                     },
                     {
                       icon: Clock,

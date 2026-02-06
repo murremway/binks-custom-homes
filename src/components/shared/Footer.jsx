@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <h3 className="text-xl font-light tracking-wide mb-4">
-              APEX<span className="text-[#c9a84c] font-semibold">HOMES</span>
+              BINKS<span className="text-[#c9a84c] font-semibold">HOMES</span>
             </h3>
             <p className="text-white/40 text-sm leading-relaxed">
               Crafting exceptional custom residences since 2008. Every home we
@@ -55,17 +55,17 @@ export default function Footer() {
                 <span className="text-white/40 text-sm">
                   1234 Builder's Lane
                   <br />
-                  Scottsdale, AZ 85251
+                  Harrisburg, PA 17101
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-[#c9a84c] flex-shrink-0" />
-                <span className="text-white/40 text-sm">(480) 555-0190</span>
+                <span className="text-white/40 text-sm">(717) 555-0190</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-[#c9a84c] flex-shrink-0" />
                 <span className="text-white/40 text-sm">
-                  info@apexhomes.com
+                  info@binkshomes.com
                 </span>
               </li>
             </ul>
@@ -97,7 +97,7 @@ export default function Footer() {
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/25 text-xs">
-            © {new Date().getFullYear()} Apex Homes. All rights reserved.
+            © {new Date().getFullYear()} Binks Homes. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-white/25 text-xs hover:text-white/50 transition-colors">

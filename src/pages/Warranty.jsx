@@ -114,7 +114,7 @@ export default function Warranty() {
 
     // Send email notification
     await base44.integrations.Core.SendEmail({
-      to: "info@apexhomes.com",
+      to: "info@binkshomes.com",
       subject: `Warranty Claim: ${form.claim_category} — ${form.owner_name}`,
       body: `
         <h2>New Warranty Claim Submitted</h2>
@@ -463,7 +463,7 @@ export default function Warranty() {
                         <p className="text-xs text-red-600 mt-1">
                           If this is an emergency (water leak, gas smell, etc.),
                           please also call us directly at{" "}
-                          <strong>(480) 555-0190</strong> for immediate
+                          <strong>(717) 555-0190</strong> for immediate
                           assistance.
                         </p>
                       </div>

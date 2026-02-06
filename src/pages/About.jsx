@@ -95,7 +95,7 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-[#1a1a2e]/60 leading-relaxed">
                 <p>
-                  Founded in 2008 by James Whitfield, Apex Homes began with a
+                  Founded in 2008 by James Whitfield, Binks Homes began with a
                   simple belief: everyone deserves a home that inspires them. What
                   started as a two-person operation has grown into one of the
                   region's most respected custom home builders.
