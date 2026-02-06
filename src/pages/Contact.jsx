@@ -26,28 +26,17 @@ export default function Contact() {
     e.preventDefault();
     setSending(true);
 
-    // Save to database
-    await base44.entities.ContactSubmission.create(form);
-
-    // Send email notification
-    await base44.integrations.Core.SendEmail({
-      to: "admin@binkshomes.org",
-      subject: `New Contact: ${form.subject || "General Inquiry"} — from ${form.full_name}`,
-      body: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${form.full_name}</p>
-        <p><strong>Email:</strong> ${form.email}</p>
-        <p><strong>Phone:</strong> ${form.phone || "Not provided"}</p>
-        <p><strong>Subject:</strong> ${form.subject || "General Inquiry"}</p>
-        <hr/>
-        <p><strong>Message:</strong></p>
-        <p>${form.message}</p>
-      `,
-    });
-
+    try {
+      const response = await base44.functions.invoke('submitContact', form);
+      if (response.data.success) {
+        setSent(true);
+        toast.success("Message sent successfully!");
+      }
+    } catch (error) {
+      toast.error("Failed to send message. Please try again.");
+    }
+    
     setSending(false);
-    setSent(true);
-    toast.success("Message sent successfully!");
   };
 
   return (

@@ -94,8 +94,10 @@ export default function Warranty() {
     const uploadedUrls = [];
 
     for (const file of files) {
-      const { file_url } = await base44.integrations.Core.UploadFile({ file });
-      uploadedUrls.push(file_url);
+      const formData = new FormData();
+      formData.append('file', file);
+      const response = await base44.functions.invoke('uploadFile', formData);
+      uploadedUrls.push(response.data.file_url);
     }
 
     setPhotos((prev) => [...prev, ...uploadedUrls]);
@@ -107,34 +109,20 @@ export default function Warranty() {
     e.preventDefault();
     setSending(true);
 
-    await base44.entities.WarrantyClaim.create({
-      ...form,
-      photos,
-    });
-
-    // Send email notification
-    await base44.integrations.Core.SendEmail({
-      to: "admin@binkshomes.org",
-      subject: `Warranty Claim: ${form.claim_category} — ${form.owner_name}`,
-      body: `
-        <h2>New Warranty Claim Submitted</h2>
-        <p><strong>Homeowner:</strong> ${form.owner_name}</p>
-        <p><strong>Email:</strong> ${form.email}</p>
-        <p><strong>Phone:</strong> ${form.phone || "Not provided"}</p>
-        <p><strong>Property:</strong> ${form.property_address}</p>
-        <p><strong>Closing Date:</strong> ${form.closing_date || "Not provided"}</p>
-        <p><strong>Category:</strong> ${form.claim_category}</p>
-        <p><strong>Urgency:</strong> ${form.urgency}</p>
-        <hr/>
-        <p><strong>Description:</strong></p>
-        <p>${form.description}</p>
-        ${photos.length > 0 ? `<p><strong>Photos attached:</strong> ${photos.length}</p>` : ""}
-      `,
-    });
-
+    try {
+      const response = await base44.functions.invoke('submitWarrantyClaim', {
+        ...form,
+        photos,
+      });
+      if (response.data.success) {
+        setSent(true);
+        toast.success("Warranty claim submitted successfully!");
+      }
+    } catch (error) {
+      toast.error("Failed to submit claim. Please try again.");
+    }
+    
     setSending(false);
-    setSent(true);
-    toast.success("Warranty claim submitted successfully!");
   };
 
   return (
