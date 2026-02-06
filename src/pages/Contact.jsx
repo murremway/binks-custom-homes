@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { base44 } from "@/api/base44Client";
+import { API_CONFIG } from "../lib/apiConfig";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -27,10 +27,17 @@ export default function Contact() {
     setSending(true);
 
     try {
-      const response = await base44.functions.invoke('submitContact', form);
-      if (response.data.success) {
+      const response = await fetch(API_CONFIG.submitContact, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      });
+      const data = await response.json();
+      if (data.success) {
         setSent(true);
         toast.success("Message sent successfully!");
+      } else {
+        toast.error("Failed to send message. Please try again.");
       }
     } catch (error) {
       toast.error("Failed to send message. Please try again.");

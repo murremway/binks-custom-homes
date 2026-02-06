@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { base44 } from "@/api/base44Client";
+import { API_CONFIG } from "../lib/apiConfig";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -96,8 +96,12 @@ export default function Warranty() {
     for (const file of files) {
       const formData = new FormData();
       formData.append('file', file);
-      const response = await base44.functions.invoke('uploadFile', formData);
-      uploadedUrls.push(response.data.file_url);
+      const response = await fetch(API_CONFIG.uploadFile, {
+        method: 'POST',
+        body: formData
+      });
+      const data = await response.json();
+      uploadedUrls.push(data.file_url);
     }
 
     setPhotos((prev) => [...prev, ...uploadedUrls]);
@@ -110,13 +114,17 @@ export default function Warranty() {
     setSending(true);
 
     try {
-      const response = await base44.functions.invoke('submitWarrantyClaim', {
-        ...form,
-        photos,
+      const response = await fetch(API_CONFIG.submitWarrantyClaim, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, photos })
       });
-      if (response.data.success) {
+      const data = await response.json();
+      if (data.success) {
         setSent(true);
         toast.success("Warranty claim submitted successfully!");
+      } else {
+        toast.error("Failed to submit claim. Please try again.");
       }
     } catch (error) {
       toast.error("Failed to submit claim. Please try again.");
