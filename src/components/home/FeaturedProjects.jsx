@@ -6,22 +6,22 @@ import { createPageUrl } from "../../utils";
 
 const projects = [
   {
-    title: "The Meridian Estate",
-    location: "Scottsdale, AZ",
-    sqft: "6,200",
-    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+    title: "Modern Ranch Home",
+    location: "Harrisburg, PA",
+    sqft: "2,400",
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6985c39bfc9bae193ed170ac/0552ebf68_Screenshot2026-02-06054609.png",
   },
   {
-    title: "Cascade Villa",
-    location: "Aspen, CO",
-    sqft: "5,800",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    title: "Contemporary Farmhouse",
+    location: "Harrisburg, PA",
+    sqft: "2,600",
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6985c39bfc9bae193ed170ac/ddb296cba_Screenshot2026-02-06054620.png",
   },
   {
-    title: "Harborview Residence",
-    location: "Newport Beach, CA",
-    sqft: "7,400",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+    title: "Custom Family Home",
+    location: "Harrisburg, PA",
+    sqft: "2,800",
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6985c39bfc9bae193ed170ac/37834a286_Screenshot2026-02-06055811.png",
   },
 ];
 
