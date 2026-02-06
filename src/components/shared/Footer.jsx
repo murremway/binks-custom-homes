@@ -14,8 +14,7 @@ export default function Footer() {
               BINKS<span className="text-[#c9a84c] font-semibold">HOMES</span>
             </h3>
             <p className="text-white/40 text-sm leading-relaxed">
-              Crafting exceptional custom residences since 2008. Every home we
-              build is a masterpiece.
+              Building exceptional custom homes with unmatched craftsmanship. Every residence we create is a masterpiece.
             </p>
           </div>
 
