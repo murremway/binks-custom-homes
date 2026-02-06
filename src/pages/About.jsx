@@ -90,28 +90,76 @@ export default function About() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl md:text-4xl font-light text-[#1a1a2e] mb-6">
-                Eighteen Years of Building{" "}
-                <span className="italic font-semibold">Excellence</span>
+                Building Homes That Stand{" "}
+                <span className="italic font-semibold">The Test of Time</span>
               </h2>
               <div className="space-y-4 text-[#1a1a2e]/60 leading-relaxed">
                 <p>
-                  Founded in 2008 by James Whitfield, Binks Homes began with a
-                  simple belief: everyone deserves a home that inspires them. What
-                  started as a two-person operation has grown into one of the
-                  region's most respected custom home builders.
+                  Founded on the principles of quality, integrity, and dedication, Binks Homes LLC has established itself as a trusted name in the custom home building industry. Our journey began with a passion for building homes that stand the test of time, offering both beauty and functionality. Over the years, we have grown into a team of skilled professionals committed to turning your dream home into a tangible masterpiece.
                 </p>
                 <p>
-                  We've built over 250 custom residences, each one a unique
-                  reflection of its owner's lifestyle and aspirations. Our
-                  integrated approach—combining architecture, construction, and
-                  interior design—ensures a seamless experience from concept to
-                  completion.
+                  Quality is at the heart of everything we do. We believe that a home is more than just a structure; it's a sanctuary where memories are made. That's why we are dedicated to providing superior craftsmanship, attention to detail, and personalized service. Our commitment to excellence has earned us a reputation for building homes that are as enduring as they are beautiful.
                 </p>
-                <p>
-                  Today, our team of 60+ professionals continues to push the
-                  boundaries of residential design, creating homes that are as
-                  sustainable as they are stunning.
-                </p>
+              </div>
+              
+              <div className="mt-8 pt-8 border-t border-[#1a1a2e]/10">
+                <h3 className="text-xl font-medium text-[#1a1a2e] mb-4">What We Do</h3>
+                <ul className="space-y-3 text-[#1a1a2e]/60">
+                  <li className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 bg-[#c9a84c] rounded-full mt-2 flex-shrink-0" />
+                    <div>
+                      <span className="font-medium text-[#1a1a2e]">Custom Home Design:</span> Collaborate with our talented architects and designers to create a home that is uniquely yours.
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 bg-[#c9a84c] rounded-full mt-2 flex-shrink-0" />
+                    <div>
+                      <span className="font-medium text-[#1a1a2e]">New Home Construction:</span> Using the highest quality materials and the latest building techniques, we construct homes that are built to last.
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 bg-[#c9a84c] rounded-full mt-2 flex-shrink-0" />
+                    <div>
+                      <span className="font-medium text-[#1a1a2e]">Remodeling and Renovations:</span> Transform your existing home with our expert remodeling services, tailored to enhance its beauty and functionality.
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 bg-[#c9a84c] rounded-full mt-2 flex-shrink-0" />
+                    <div>
+                      <span className="font-medium text-[#1a1a2e]">Project Management:</span> Our experienced project managers oversee every aspect of the construction process, ensuring timely and on-budget completion.
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="mt-8 pt-8 border-t border-[#1a1a2e]/10">
+                <h3 className="text-xl font-medium text-[#1a1a2e] mb-4">Why Choose Binks Homes LLC?</h3>
+                <ul className="space-y-3 text-[#1a1a2e]/60">
+                  <li className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 bg-[#c9a84c] rounded-full mt-2 flex-shrink-0" />
+                    <div>
+                      <span className="font-medium text-[#1a1a2e]">Experienced Team:</span> Our team of architects, builders, and project managers brings years of experience and expertise to every project.
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 bg-[#c9a84c] rounded-full mt-2 flex-shrink-0" />
+                    <div>
+                      <span className="font-medium text-[#1a1a2e]">Customer-Centric Approach:</span> Your satisfaction is our top priority. We listen to your needs and work tirelessly to bring your vision to life.
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 bg-[#c9a84c] rounded-full mt-2 flex-shrink-0" />
+                    <div>
+                      <span className="font-medium text-[#1a1a2e]">Innovative Designs:</span> We stay ahead of industry trends, incorporating the latest design innovations and sustainable practices into our homes.
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 bg-[#c9a84c] rounded-full mt-2 flex-shrink-0" />
+                    <div>
+                      <span className="font-medium text-[#1a1a2e]">Transparent Process:</span> We believe in open communication and transparency, keeping you informed and involved throughout the entire building process.
+                    </div>
+                  </li>
+                </ul>
               </div>
             </motion.div>
             <motion.div
