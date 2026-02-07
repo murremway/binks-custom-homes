@@ -102,7 +102,7 @@ export default function Contact() {
                     {
                       icon: Phone,
                       title: "Call Us",
-                      lines: ["(717) 555-0190", "(717) 555-0191"],
+                      lines: ["(717) 559-2933"],
                     },
                     {
                       icon: Mail,

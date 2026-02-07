@@ -459,7 +459,7 @@ export default function Warranty() {
                         <p className="text-xs text-red-600 mt-1">
                           If this is an emergency (water leak, gas smell, etc.),
                           please also call us directly at{" "}
-                          <strong>(717) 555-0190</strong> for immediate
+                          <strong>(717) 559-2933</strong> for immediate
                           assistance.
                         </p>
                       </div>
