@@ -55,7 +55,7 @@ export default function About() {
       <section className="relative h-[60vh] min-h-[400px] flex items-center">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1920&q=80"
+            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80"
             alt="About Apex Homes"
             className="w-full h-full object-cover"
           />
@@ -169,7 +169,7 @@ export default function About() {
               className="relative"
             >
               <img
-                src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80"
+                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80"
                 alt="Building process"
                 className="w-full aspect-[4/5] object-cover"
               />

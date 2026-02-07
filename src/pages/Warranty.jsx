@@ -139,7 +139,7 @@ export default function Warranty() {
       <section className="relative h-[50vh] min-h-[350px] flex items-center">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&q=80"
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
             alt="Warranty"
             className="w-full h-full object-cover"
           />

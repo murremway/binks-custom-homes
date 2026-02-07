@@ -10,7 +10,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80"
+          src="https://images.unsplash.com/photo-1597047084897-51e2df133900?w=1920&q=80"
           alt="Luxury custom home"
           className="w-full h-full object-cover"
         />

@@ -36,7 +36,7 @@ export default function Services() {
       <section className="relative h-[50vh] min-h-[350px] flex items-center">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80"
+            src="https://images.unsplash.com/photo-1541976590-713941681591?w=1920&q=80"
             alt="Our Services"
             className="w-full h-full object-cover"
           />
@@ -144,7 +144,7 @@ export default function Services() {
               viewport={{ once: true }}
             >
               <img
-                src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80"
+                src="https://images.unsplash.com/photo-1590496793907-03c8732f0fd5?w=800&q=80"
                 alt="Quality craftsmanship"
                 className="w-full aspect-[4/5] object-cover"
               />

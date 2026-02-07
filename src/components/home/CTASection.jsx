@@ -9,7 +9,7 @@ export default function CTASection() {
     <section className="relative py-32 overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1920&q=80"
+          src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80"
           alt="Luxury home interior"
           className="w-full h-full object-cover"
         />
