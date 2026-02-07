@@ -94,11 +94,7 @@ export default function Contact() {
 
                 <div className="space-y-6">
                   {[
-                    {
-                      icon: MapPin,
-                      title: "Visit Us",
-                      lines: ["1234 Builder's Lane", "Harrisburg, PA 17101"],
-                    },
+
                     {
                       icon: Phone,
                       title: "Call Us",

@@ -50,14 +50,7 @@ export default function Footer() {
               Contact
             </h4>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#c9a84c] mt-0.5 flex-shrink-0" />
-                <span className="text-white/40 text-sm">
-                  1234 Builder's Lane
-                  <br />
-                  Harrisburg, PA 17101
-                </span>
-              </li>
+
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-[#c9a84c] flex-shrink-0" />
                 <span className="text-white/40 text-sm">(717) 559-2933</span>
