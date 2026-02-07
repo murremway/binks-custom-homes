@@ -103,7 +103,7 @@ export default function Contact() {
                     {
                       icon: Mail,
                       title: "Email Us",
-                      lines: ["info@binkshomes.com", "sales@binkshomes.com"],
+                      lines: ["admin@binkshomes.org"],
                     },
                     {
                       icon: Clock,
