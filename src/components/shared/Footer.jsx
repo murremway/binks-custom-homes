@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <h3 className="text-xl font-light tracking-wide mb-4">
-              BINKS<span className="text-[#c9a84c] font-semibold">HOMES</span>
+              BINKS <span className="text-[#c9a84c] font-semibold">HOMES</span>
             </h3>
             <p className="text-white/40 text-sm leading-relaxed">
               Building exceptional custom homes with unmatched craftsmanship. Every residence we create is a masterpiece.
