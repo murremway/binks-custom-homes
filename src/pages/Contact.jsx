@@ -52,7 +52,7 @@ export default function Contact() {
       <section className="relative h-[50vh] min-h-[350px] flex items-center">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1920&q=80"
+            src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=1920&q=80"
             alt="Contact"
             className="w-full h-full object-cover"
           />
@@ -108,7 +108,7 @@ export default function Contact() {
                     {
                       icon: Clock,
                       title: "Office Hours",
-                      lines: ["Mon–Fri: 8am – 6pm", "Sat: 9am – 4pm"],
+                      lines: ["Mon–Fri: 8am – 4pm"],
                     },
                   ].map((item) => (
                     <div key={item.title} className="flex gap-4">
