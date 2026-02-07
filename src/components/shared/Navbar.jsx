@@ -41,11 +41,14 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-20">
           <Link to={createPageUrl("Home")} className="flex items-center">
-            <img 
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6985c39bfc9bae193ed170ac/cd7e3c04b_4.png" 
-              alt="Binks Homes" 
-              className="h-12 w-auto"
-            />
+            <span
+              className={`text-xl font-light tracking-wide transition-colors duration-500 ${
+                scrolled || !isHome ? "text-[#1a1a2e]" : "text-white"
+              }`}
+            >
+              BINKS
+              <span className="text-[#c9a84c] font-semibold">HOMES</span>
+            </span>
           </Link>
 
           {/* Desktop Nav */}
