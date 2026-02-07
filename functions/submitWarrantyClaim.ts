@@ -1,12 +1,28 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.6';
+import postgres from 'npm:postgres';
 
 Deno.serve(async (req) => {
     try {
         const base44 = createClientFromRequest(req);
         const payload = await req.json();
 
+        // Connect to Netlify database
+        const sql = postgres(Deno.env.get('NETLIFY_DATABASE_URL'));
+        
         // Save to database
-        await base44.asServiceRole.entities.WarrantyClaim.create(payload);
+        await sql`
+            INSERT INTO warranty_claims (
+                owner_name, email, phone, property_address, closing_date,
+                claim_category, description, urgency, photos, status
+            ) VALUES (
+                ${payload.owner_name}, ${payload.email}, ${payload.phone || null}, 
+                ${payload.property_address}, ${payload.closing_date || null},
+                ${payload.claim_category}, ${payload.description}, ${payload.urgency}, 
+                ${JSON.stringify(payload.photos || [])}, 'submitted'
+            )
+        `;
+        
+        await sql.end();
 
         // Send email notification
         await base44.asServiceRole.integrations.Core.SendEmail({
