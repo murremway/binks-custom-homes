@@ -254,13 +254,7 @@ export default function About() {
                 transition={{ delay: i * 0.1 }}
                 className="group"
               >
-                <div className="relative overflow-hidden aspect-[3/4] mb-4">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
+
                 <h3 className="font-medium text-[#1a1a2e]">{member.name}</h3>
                 <p className="text-[#1a1a2e]/40 text-sm">{member.role}</p>
               </motion.div>
