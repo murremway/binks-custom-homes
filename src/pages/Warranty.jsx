@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { API_CONFIG } from "../components/shared/apiConfig";
+import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -94,14 +94,8 @@ export default function Warranty() {
     const uploadedUrls = [];
 
     for (const file of files) {
-      const formData = new FormData();
-      formData.append('file', file);
-      const response = await fetch(API_CONFIG.uploadFile, {
-        method: 'POST',
-        body: formData
-      });
-      const data = await response.json();
-      uploadedUrls.push(data.file_url);
+      const { file_url } = await base44.integrations.Core.UploadFile({ file });
+      uploadedUrls.push(file_url);
     }
 
     setPhotos((prev) => [...prev, ...uploadedUrls]);
@@ -114,13 +108,8 @@ export default function Warranty() {
     setSending(true);
 
     try {
-      const response = await fetch(API_CONFIG.submitWarrantyClaim, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, photos })
-      });
-      const data = await response.json();
-      if (data.success) {
+      const response = await base44.functions.invoke('submitWarrantyClaim', { ...form, photos });
+      if (response.data.success) {
         setSent(true);
         toast.success("Warranty claim submitted successfully!");
       } else {
