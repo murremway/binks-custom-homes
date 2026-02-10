@@ -6,8 +6,8 @@ Deno.serve(async (req) => {
         const base44 = createClientFromRequest(req);
         const payload = await req.json();
 
-        // Connect to Netlify database
-        const sql = postgres(Deno.env.get('NETLIFY_DATABASE_URL'));
+        // Connect to Neon database
+        const sql = postgres('postgresql://neondb_owner:npg_fv0UQqwxB5ck@ep-silent-mode-aew2u2r8-pooler.c-2.us-east-2.aws.neon.tech/neondb?channel_binding=require&sslmode=require');
         
         // Save to database
         await sql`
