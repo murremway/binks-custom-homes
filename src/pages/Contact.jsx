@@ -93,7 +93,7 @@ export default function Contact() {
                     {
                       icon: Phone,
                       title: "Call Us",
-                      lines: ["(717) 559-2933"],
+                      lines: ["(223) 259-9834"],
                     },
                     {
                       icon: Mail,
