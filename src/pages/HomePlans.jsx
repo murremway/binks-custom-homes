@@ -76,6 +76,20 @@ export default function HomePlans() {
   );
 
   useEffect(() => {
+    if (!selectedPlan) return;
+
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousHtmlOverflowX = document.documentElement.style.overflowX;
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflowX = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflowX = previousHtmlOverflowX;
+    };
+  }, [selectedPlan]);
+
+  useEffect(() => {
     if (!selectedPlan || !hasMultiplePhotos) return;
 
     const handleKeyDown = (event) => {
@@ -94,7 +108,7 @@ export default function HomePlans() {
   }, [selectedPlan, hasMultiplePhotos, goToPhoto]);
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <section className="relative h-[50vh] min-h-[350px] flex items-center">
         <div className="absolute inset-0">
           <img
@@ -145,7 +159,7 @@ export default function HomePlans() {
                     type="button"
                     onClick={() => openPlanDetails(plan)}
                     disabled={!plan.floorPlan && !plan.images?.length}
-                    className={`relative overflow-hidden aspect-[4/3] w-full block text-left ${
+                    className={`relative aspect-[4/3] w-full block text-left bg-[#f3f1ed] overflow-hidden ${
                       plan.floorPlan || plan.images?.length
                         ? "cursor-pointer"
                         : "cursor-default"
@@ -159,7 +173,7 @@ export default function HomePlans() {
                     <img
                       src={plan.image}
                       alt={`${plan.name} exterior`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-contain object-center"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a2e]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-between p-6">
                       <div>
@@ -223,9 +237,9 @@ export default function HomePlans() {
           }
         }}
       >
-        <DialogContent className="w-[calc(100vw-1rem)] max-w-6xl max-h-[90vh] overflow-x-hidden overflow-y-auto p-0 gap-0 border-0">
+        <DialogContent className="left-1/2 top-1/2 w-[min(calc(100vw-2rem),72rem)] max-w-none translate-x-[-50%] translate-y-[-50%] max-h-[90vh] overflow-hidden p-0 gap-0 border-0">
           {selectedPlan && activePhoto && (
-            <>
+            <div className="flex max-h-[90vh] flex-col overflow-y-auto overflow-x-hidden overscroll-x-contain">
               <DialogHeader className="p-4 sm:p-6 pb-4 border-b border-[#1a1a2e]/10">
                 <DialogTitle className="text-2xl font-light text-[#1a1a2e]">
                   {selectedPlan.name}
@@ -240,23 +254,25 @@ export default function HomePlans() {
                 </DialogDescription>
               </DialogHeader>
 
-              <section className="border-b border-[#1a1a2e]/10">
-                <div className="px-6 pt-5 pb-2">
+              <section className="border-b border-[#1a1a2e]/10 min-w-0">
+                <div className="px-4 sm:px-6 pt-5 pb-2">
                   <h3 className="text-xs tracking-[0.25em] uppercase text-[#1a1a2e]/50 font-medium">
                     Photo Gallery
                   </h3>
                 </div>
 
-                <div className="px-4 sm:px-6 pb-4 overflow-hidden">
+                <div className="px-4 sm:px-6 pb-4 min-w-0">
                   <div className="flex items-center justify-between gap-4 mb-3">
-                    <p className="text-sm text-[#1a1a2e]/70">{activePhoto.label}</p>
+                    <p className="text-sm text-[#1a1a2e]/70 text-center flex-1">
+                      {activePhoto.label}
+                    </p>
                     {hasMultiplePhotos && (
-                      <p className="text-[10px] tracking-widest uppercase text-[#1a1a2e]/40">
+                      <p className="text-[10px] tracking-widest uppercase text-[#1a1a2e]/40 shrink-0">
                         {currentPhotoIndex + 1} / {planPhotos.length}
                       </p>
                     )}
                   </div>
-                  <div className="flex gap-2 overflow-x-auto pb-1">
+                  <div className="flex gap-2 overflow-x-auto overscroll-x-contain pb-1 max-w-full">
                     {planPhotos.map((photo) => (
                       <button
                         key={photo.id}
@@ -279,7 +295,7 @@ export default function HomePlans() {
                   </div>
                 </div>
 
-                <div className="relative px-4 sm:px-6 pb-6 bg-[#faf8f5] overflow-hidden">
+                <div className="relative bg-[#faf8f5] px-12 sm:px-14 pb-6 pt-2 min-w-0">
                   {hasMultiplePhotos && (
                     <>
                       <button
@@ -298,53 +314,35 @@ export default function HomePlans() {
                       >
                         <ChevronRight className="w-5 h-5" />
                       </button>
-                      <button
-                        type="button"
-                        onClick={() => goToPhoto("prev")}
-                        className="absolute inset-y-6 left-2 sm:left-6 w-[30%] z-[1]"
-                        aria-label="Previous photo"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => goToPhoto("next")}
-                        className="absolute inset-y-6 right-2 sm:right-6 w-[30%] z-[1]"
-                        aria-label="Next photo"
-                      />
                     </>
                   )}
-                  <div className="flex items-center justify-center w-full min-h-[200px] max-h-[50vh] overflow-hidden">
-                    <AnimatePresence mode="wait">
-                      <motion.img
-                        key={activePhoto.id}
-                        src={activePhoto.src}
-                        alt={activePhoto.alt}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="relative z-0 max-w-full max-h-[50vh] w-auto h-auto object-contain select-none"
-                        draggable={false}
-                      />
-                    </AnimatePresence>
+                  <div className="mx-auto flex h-[min(50vh,420px)] w-full max-w-full items-center justify-center overflow-hidden">
+                    <img
+                      key={activePhoto.id}
+                      src={activePhoto.src}
+                      alt={activePhoto.alt}
+                      className="mx-auto block max-h-full max-w-full object-contain select-none"
+                      draggable={false}
+                    />
                   </div>
                 </div>
               </section>
 
               {selectedPlan.floorPlan && (
-                <section className="p-4 sm:p-6 bg-white overflow-hidden">
-                  <h3 className="text-lg md:text-xl font-bold text-[#1a1a2e] tracking-wide uppercase mb-4">
+                <section className="min-w-0 bg-white p-4 sm:p-6">
+                  <h3 className="mb-4 text-center text-lg font-bold uppercase tracking-wide text-[#1a1a2e] md:text-xl">
                     Floor Plan
                   </h3>
-                  <div className="bg-[#faf8f5] border-2 border-[#1a1a2e]/10 p-3 sm:p-6 overflow-hidden flex items-center justify-center">
+                  <div className="mx-auto flex h-[min(55vh,480px)] w-full max-w-full items-center justify-center overflow-hidden rounded-sm border-2 border-[#1a1a2e]/10 bg-[#faf8f5] p-3 sm:p-6">
                     <img
                       src={selectedPlan.floorPlan}
                       alt={`${selectedPlan.name} floor plan`}
-                      className="max-w-full max-h-[55vh] w-auto h-auto object-contain"
+                      className="mx-auto block max-h-full max-w-full object-contain"
                     />
                   </div>
                 </section>
               )}
-            </>
+            </div>
           )}
         </DialogContent>
       </Dialog>
