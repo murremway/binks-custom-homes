@@ -28,6 +28,7 @@ export default function Footer() {
                 { name: "Home", page: "Home" },
                 { name: "About Us", page: "About" },
                 { name: "Services", page: "Services" },
+                { name: "Home Plans", page: "HomePlans" },
                 { name: "Portfolio", page: "Portfolio" },
                 { name: "Contact", page: "Contact" },
                 { name: "Warranty", page: "Warranty" },

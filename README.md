@@ -1,39 +1,31 @@
-**Welcome to your Base44 project** 
+# Binks Homes
 
-**About**
+Custom home builder website for Binks Homes.
 
-View and Edit  your app on [Base44.com](http://Base44.com) 
+## Local development
 
-This project contains everything you need to run your app locally.
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Start the dev server: `npm run dev`
+4. Open [http://localhost:5173](http://localhost:5173)
 
-**Edit the code in your local development environment**
+## Forms
 
-Any change pushed to the repo will also be reflected in the Base44 Builder.
+Contact and warranty submissions are sent to `admin@binkshomes.org` via FormSubmit.
+Update the address in `src/lib/formConfig.js` if needed.
 
-**Prerequisites:** 
+On first use, submit a test form and confirm the activation email sent to that inbox.
 
-1. Clone the repository using the project's Git URL 
-2. Navigate to the project directory
-3. Install dependencies: `npm install`
-4. Create an `.env.local` file and set the right environment variables
+## Deploy
 
+The site deploys to AWS S3 + CloudFront via GitHub Actions (manual workflow dispatch).
+Configure these GitHub secrets: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`,
+`AWS_REGION`, `S3_BUCKET`, and `CLOUDFRONT_DISTRIBUTION_ID`.
+
+## Build
+
+```bash
+npm run build
 ```
-VITE_BASE44_APP_ID=your_app_id
-VITE_BASE44_APP_BASE_URL=your_backend_url
 
-e.g.
-VITE_BASE44_APP_ID=cbef744a8545c389ef439ea6
-VITE_BASE44_APP_BASE_URL=https://my-to-do-list-81bfaad7.base44.app
-```
-
-Run the app: `npm run dev`
-
-**Publish your changes**
-
-Open [Base44.com](http://Base44.com) and click on Publish.
-
-**Docs & Support**
-
-Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.base44.com/Integrations/Using-GitHub)
-
-Support: [https://app.base44.com/support](https://app.base44.com/support)
+Output is written to `dist/`.

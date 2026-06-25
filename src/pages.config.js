@@ -50,6 +50,7 @@
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
+import HomePlans from './pages/HomePlans';
 import Portfolio from './pages/Portfolio';
 import Services from './pages/Services';
 import Warranty from './pages/Warranty';
@@ -60,6 +61,7 @@ export const PAGES = {
     "About": About,
     "Contact": Contact,
     "Home": Home,
+    "HomePlans": HomePlans,
     "Portfolio": Portfolio,
     "Services": Services,
     "Warranty": Warranty,

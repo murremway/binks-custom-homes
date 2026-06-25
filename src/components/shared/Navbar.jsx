@@ -8,6 +8,7 @@ const navLinks = [
   { name: "Home", page: "Home" },
   { name: "About", page: "About" },
   { name: "Services", page: "Services" },
+  { name: "Home Plans", page: "HomePlans" },
   { name: "Portfolio", page: "Portfolio" },
   { name: "Warranty", page: "Warranty" },
   { name: "Contact", page: "Contact" },

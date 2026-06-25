@@ -1,49 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { base44 } from "@/api/base44Client";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, Loader2 } from "lucide-react";
-import { toast } from "sonner";
+import { Phone, Mail, Clock } from "lucide-react";
+import ContactForm from "@/components/forms/ContactForm";
 
 export default function Contact() {
-  const [form, setForm] = useState({
-    full_name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
-  const [sending, setSending] = useState(false);
-  const [sent, setSent] = useState(false);
-
-  const handleChange = (e) => {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSending(true);
-
-    try {
-      const response = await base44.functions.invoke('submitContact', form);
-      if (response.data.success) {
-        setSent(true);
-        toast.success("Message sent successfully!");
-      } else {
-        toast.error("Failed to send message. Please try again.");
-      }
-    } catch (error) {
-      toast.error("Failed to send message. Please try again.");
-    }
-    
-    setSending(false);
-  };
-
   return (
     <div>
-      {/* Hero */}
       <section className="relative h-[50vh] min-h-[350px] flex items-center">
         <div className="absolute inset-0">
           <img
@@ -71,11 +33,9 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Content */}
       <section className="py-20 bg-[#faf8f5]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-5 gap-16">
-            {/* Contact Info */}
             <div className="lg:col-span-2">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -89,7 +49,6 @@ export default function Contact() {
 
                 <div className="space-y-6">
                   {[
-
                     {
                       icon: Phone,
                       title: "Call Us",
@@ -126,7 +85,6 @@ export default function Contact() {
               </motion.div>
             </div>
 
-            {/* Form */}
             <div className="lg:col-span-3">
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
@@ -134,110 +92,7 @@ export default function Contact() {
                 viewport={{ once: true }}
                 className="bg-white p-8 md:p-10 shadow-sm"
               >
-                {sent ? (
-                  <div className="text-center py-12">
-                    <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                    <h3 className="text-2xl font-light text-[#1a1a2e] mb-2">
-                      Message Sent!
-                    </h3>
-                    <p className="text-[#1a1a2e]/50">
-                      We'll get back to you within 24 hours.
-                    </p>
-                    <Button
-                      onClick={() => {
-                        setSent(false);
-                        setForm({ full_name: "", email: "", phone: "", subject: "", message: "" });
-                      }}
-                      variant="outline"
-                      className="mt-6"
-                    >
-                      Send Another Message
-                    </Button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="text-xs tracking-wider uppercase text-[#1a1a2e]/50 font-medium mb-2 block">
-                          Full Name *
-                        </label>
-                        <Input
-                          name="full_name"
-                          value={form.full_name}
-                          onChange={handleChange}
-                          required
-                          placeholder="John Smith"
-                          className="border-[#1a1a2e]/10 focus:border-[#c9a84c] rounded-none h-12"
-                        />
-                      </div>
-                      <div>
-                        <label className="text-xs tracking-wider uppercase text-[#1a1a2e]/50 font-medium mb-2 block">
-                          Email *
-                        </label>
-                        <Input
-                          name="email"
-                          type="email"
-                          value={form.email}
-                          onChange={handleChange}
-                          required
-                          placeholder="john@example.com"
-                          className="border-[#1a1a2e]/10 focus:border-[#c9a84c] rounded-none h-12"
-                        />
-                      </div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="text-xs tracking-wider uppercase text-[#1a1a2e]/50 font-medium mb-2 block">
-                          Phone
-                        </label>
-                        <Input
-                          name="phone"
-                          value={form.phone}
-                          onChange={handleChange}
-                          placeholder="(480) 555-0190"
-                          className="border-[#1a1a2e]/10 focus:border-[#c9a84c] rounded-none h-12"
-                        />
-                      </div>
-                      <div>
-                        <label className="text-xs tracking-wider uppercase text-[#1a1a2e]/50 font-medium mb-2 block">
-                          Subject
-                        </label>
-                        <Input
-                          name="subject"
-                          value={form.subject}
-                          onChange={handleChange}
-                          placeholder="New Home Inquiry"
-                          className="border-[#1a1a2e]/10 focus:border-[#c9a84c] rounded-none h-12"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="text-xs tracking-wider uppercase text-[#1a1a2e]/50 font-medium mb-2 block">
-                        Message *
-                      </label>
-                      <Textarea
-                        name="message"
-                        value={form.message}
-                        onChange={handleChange}
-                        required
-                        placeholder="Tell us about your project..."
-                        className="border-[#1a1a2e]/10 focus:border-[#c9a84c] rounded-none min-h-[150px]"
-                      />
-                    </div>
-                    <Button
-                      type="submit"
-                      disabled={sending}
-                      className="w-full bg-[#1a1a2e] hover:bg-[#2a2a3e] text-white h-12 rounded-none tracking-wider uppercase text-xs font-medium"
-                    >
-                      {sending ? (
-                        <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                      ) : (
-                        <Send className="w-4 h-4 mr-2" />
-                      )}
-                      {sending ? "Sending..." : "Send Message"}
-                    </Button>
-                  </form>
-                )}
+                <ContactForm />
               </motion.div>
             </div>
           </div>
