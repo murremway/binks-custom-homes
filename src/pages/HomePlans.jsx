@@ -223,10 +223,10 @@ export default function HomePlans() {
           }
         }}
       >
-        <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto p-0 gap-0 border-0">
+        <DialogContent className="w-[calc(100vw-1rem)] max-w-6xl max-h-[90vh] overflow-x-hidden overflow-y-auto p-0 gap-0 border-0">
           {selectedPlan && activePhoto && (
             <>
-              <DialogHeader className="p-6 pb-4 border-b border-[#1a1a2e]/10">
+              <DialogHeader className="p-4 sm:p-6 pb-4 border-b border-[#1a1a2e]/10">
                 <DialogTitle className="text-2xl font-light text-[#1a1a2e]">
                   {selectedPlan.name}
                 </DialogTitle>
@@ -247,7 +247,7 @@ export default function HomePlans() {
                   </h3>
                 </div>
 
-                <div className="px-6 pb-4">
+                <div className="px-4 sm:px-6 pb-4 overflow-hidden">
                   <div className="flex items-center justify-between gap-4 mb-3">
                     <p className="text-sm text-[#1a1a2e]/70">{activePhoto.label}</p>
                     {hasMultiplePhotos && (
@@ -279,13 +279,13 @@ export default function HomePlans() {
                   </div>
                 </div>
 
-                <div className="relative px-6 pb-6 bg-[#faf8f5]">
+                <div className="relative px-4 sm:px-6 pb-6 bg-[#faf8f5] overflow-hidden">
                   {hasMultiplePhotos && (
                     <>
                       <button
                         type="button"
                         onClick={() => goToPhoto("prev")}
-                        className="absolute left-3 top-1/2 z-10 -translate-y-1/2 bg-white/90 hover:bg-white text-[#1a1a2e] p-2.5 shadow-md transition-colors cursor-w-resize"
+                        className="absolute left-2 sm:left-3 top-1/2 z-10 -translate-y-1/2 bg-white/90 hover:bg-white text-[#1a1a2e] p-2 sm:p-2.5 shadow-md transition-colors"
                         aria-label="Previous photo"
                       >
                         <ChevronLeft className="w-5 h-5" />
@@ -293,7 +293,7 @@ export default function HomePlans() {
                       <button
                         type="button"
                         onClick={() => goToPhoto("next")}
-                        className="absolute right-3 top-1/2 z-10 -translate-y-1/2 bg-white/90 hover:bg-white text-[#1a1a2e] p-2.5 shadow-md transition-colors cursor-e-resize"
+                        className="absolute right-2 sm:right-3 top-1/2 z-10 -translate-y-1/2 bg-white/90 hover:bg-white text-[#1a1a2e] p-2 sm:p-2.5 shadow-md transition-colors"
                         aria-label="Next photo"
                       >
                         <ChevronRight className="w-5 h-5" />
@@ -301,43 +301,45 @@ export default function HomePlans() {
                       <button
                         type="button"
                         onClick={() => goToPhoto("prev")}
-                        className="absolute inset-y-6 left-6 w-[38%] z-[1] cursor-w-resize"
+                        className="absolute inset-y-6 left-2 sm:left-6 w-[30%] z-[1]"
                         aria-label="Previous photo"
                       />
                       <button
                         type="button"
                         onClick={() => goToPhoto("next")}
-                        className="absolute inset-y-6 right-6 w-[38%] z-[1] cursor-e-resize"
+                        className="absolute inset-y-6 right-2 sm:right-6 w-[30%] z-[1]"
                         aria-label="Next photo"
                       />
                     </>
                   )}
-                  <AnimatePresence mode="wait">
-                    <motion.img
-                      key={activePhoto.id}
-                      src={activePhoto.src}
-                      alt={activePhoto.alt}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.2 }}
-                      className="relative z-0 w-full max-h-[45vh] object-contain select-none mx-auto"
-                      draggable={false}
-                    />
-                  </AnimatePresence>
+                  <div className="flex items-center justify-center w-full min-h-[200px] max-h-[50vh] overflow-hidden">
+                    <AnimatePresence mode="wait">
+                      <motion.img
+                        key={activePhoto.id}
+                        src={activePhoto.src}
+                        alt={activePhoto.alt}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="relative z-0 max-w-full max-h-[50vh] w-auto h-auto object-contain select-none"
+                        draggable={false}
+                      />
+                    </AnimatePresence>
+                  </div>
                 </div>
               </section>
 
               {selectedPlan.floorPlan && (
-                <section className="p-6 bg-white">
+                <section className="p-4 sm:p-6 bg-white overflow-hidden">
                   <h3 className="text-lg md:text-xl font-bold text-[#1a1a2e] tracking-wide uppercase mb-4">
                     Floor Plan
                   </h3>
-                  <div className="bg-[#faf8f5] border-2 border-[#1a1a2e]/10 p-4 md:p-6">
+                  <div className="bg-[#faf8f5] border-2 border-[#1a1a2e]/10 p-3 sm:p-6 overflow-hidden flex items-center justify-center">
                     <img
                       src={selectedPlan.floorPlan}
                       alt={`${selectedPlan.name} floor plan`}
-                      className="w-full h-auto object-contain"
+                      className="max-w-full max-h-[55vh] w-auto h-auto object-contain"
                     />
                   </div>
                 </section>
