@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { createPageUrl } from "../utils";
 import { ridgeviewFloorPlan, ridgeviewPhotos } from "../data/ridgeviewPhotos";
+import ZoomableImage from "@/components/shared/ZoomableImage";
 import {
   Dialog,
   DialogContent,
@@ -316,15 +317,14 @@ export default function HomePlans() {
                       </button>
                     </>
                   )}
-                  <div className="mx-auto flex h-[min(50vh,420px)] w-full max-w-full items-center justify-center overflow-hidden">
-                    <img
-                      key={activePhoto.id}
-                      src={activePhoto.src}
-                      alt={activePhoto.alt}
-                      className="mx-auto block max-h-full max-w-full object-contain select-none"
-                      draggable={false}
-                    />
-                  </div>
+                  <ZoomableImage
+                    key={activePhoto.id}
+                    src={activePhoto.src}
+                    alt={activePhoto.alt}
+                    imageKey={activePhoto.id}
+                    containerClassName="h-[min(50vh,420px)]"
+                    maxScale={3}
+                  />
                 </div>
               </section>
 
@@ -333,11 +333,13 @@ export default function HomePlans() {
                   <h3 className="mb-4 text-center text-lg font-bold uppercase tracking-wide text-[#1a1a2e] md:text-xl">
                     Floor Plan
                   </h3>
-                  <div className="mx-auto flex h-[min(55vh,480px)] w-full max-w-full items-center justify-center overflow-hidden rounded-sm border-2 border-[#1a1a2e]/10 bg-[#faf8f5] p-3 sm:p-6">
-                    <img
+                  <div className="mx-auto w-full max-w-full min-w-0 rounded-sm border-2 border-[#1a1a2e]/10 bg-[#faf8f5] p-3 sm:p-6">
+                    <ZoomableImage
                       src={selectedPlan.floorPlan}
                       alt={`${selectedPlan.name} floor plan`}
-                      className="mx-auto block max-h-full max-w-full object-contain"
+                      imageKey={selectedPlan.floorPlan}
+                      containerClassName="h-[min(55vh,480px)]"
+                      maxScale={4}
                     />
                   </div>
                 </section>
